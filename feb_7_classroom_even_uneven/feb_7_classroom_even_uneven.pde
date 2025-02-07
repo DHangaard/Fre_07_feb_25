@@ -15,5 +15,3 @@ void draw() {
     println("The number " + number + " is uneven!"); //print if number is negative
   }
 }
-
-//number = number % divideBy == 0 ? println("The number is even!") : println("The number is uneven!");
