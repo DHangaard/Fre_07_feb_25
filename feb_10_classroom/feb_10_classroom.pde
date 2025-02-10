@@ -30,10 +30,10 @@
  9. Print statement
  */
 
-int timeSec = (int) random(0,150);
+int timeSec = (int) random(0, 150);
 int score = 0;
-int rescuedKittensNum = (int) random(0,11);
-int treasureNum = (int) random(0,6);
+int rescuedKittensNum = (int) random(0, 11);
+int treasureNum = (int) random(0, 6);
 boolean escaped = false;
 
 int treasureCalc;
@@ -45,9 +45,9 @@ void setup() {
   if (timeSec == 0) {
     escaped = false;
   } else {
-  escaped = true;
+    escaped = true;
   }
-  
+
   if (!escaped) {
     score = score - rescuedKittensNum - treasureNum;
     println("You failed! Score: " + score);
@@ -62,21 +62,21 @@ void setup() {
     } else if (timeSec >= 30) {
       score += 10;
     }
-    
+
     //Sets the calculating number for found treasures to 1 if no kittens have been saved (You cant multiply with 0!!!!)
     if (treasureNum == 0) {
       treasureCalc = 1;
     } else {
       treasureCalc = treasureNum;
     }
-    
+
     //Sets the calculating number for rescued kittens to 1 if no kittens have been saved (You cant multiply with 0!!!!)
     if (rescuedKittensNum == 0) {
       rescuedKittensCalc = 1;
     } else {
       rescuedKittensCalc = rescuedKittensNum;
     }
-    
+
     //Calculating highscore if escaped
     score += rescuedKittensCalc * treasureCalc;
 
@@ -85,5 +85,5 @@ void setup() {
     println("You rescued " + rescuedKittensNum + " kittens!");
     println("You found " + treasureNum + " treasures!");
     println("Total score: " + score);
-}
+  }
 }
