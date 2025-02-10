@@ -36,6 +36,9 @@ int rescuedKittensNum = (int) random(0, 11);
 int treasureNum = (int) random(0, 6);
 boolean escaped = false;
 
+//Use this boolean to set random true or false (.5 is 50% chance of escaping/!escaping  -- Remember to out comment line 48-52 if used
+//boolean escaped = random(1) < .5;
+
 int treasureCalc;
 int rescuedKittensCalc;
 
