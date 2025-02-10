@@ -30,17 +30,28 @@
  9. Print statement
  */
 
-int timeSec = 150;
+int timeSec = (int) random(0,150);
 int score = 0;
-int rescuedKittensNum = 4;
-int treasureNum = 2;
+int rescuedKittensNum = (int) random(0,11);
+int treasureNum = (int) random(0,6);
 boolean escaped = false;
+
+int treasureCalc;
+int rescuedKittensCalc;
 
 void setup() {
 
+  //Sets the escaped boolean to true or false, true if seconds are left.
+  if (timeSec == 0) {
+    escaped = false;
+  } else {
+  escaped = true;
+  }
+  
   if (!escaped) {
     score = score - rescuedKittensNum - treasureNum;
     println("You failed! Score: " + score);
+    println(timeSec);
   } else if (escaped) {
     if (timeSec >= 120) {
       score += 100;
@@ -51,9 +62,30 @@ void setup() {
     } else if (timeSec >= 30) {
       score += 10;
     }
-    score += rescuedKittensNum * treasureNum;
-    println("You escaped! Score: " + score);
-  }
+    
+    //Sets the calculating number for found treasures to 1 if no kittens have been saved (You cant multiply with 0!!!!)
+    if (treasureNum == 0) {
+      treasureCalc = 1;
+    } else {
+      treasureCalc = treasureNum;
+    }
+    
+    //Sets the calculating number for rescued kittens to 1 if no kittens have been saved (You cant multiply with 0!!!!)
+    if (rescuedKittensNum == 0) {
+      rescuedKittensCalc = 1;
+    } else {
+      rescuedKittensCalc = rescuedKittensNum;
+    }
+    
+    //Calculating highscore if escaped
+    score += rescuedKittensCalc * treasureCalc;
+
+    //Printing if escaped text
+    println("You escaped with " + timeSec + " seconds left!");
+    println("You rescued " + rescuedKittensNum + " kittens!");
+    println("You found " + treasureNum + " treasures!");
+    println("Total score: " + score);
+}
 }
 
 void draw() {
