@@ -87,6 +87,3 @@ void setup() {
     println("Total score: " + score);
 }
 }
-
-void draw() {
-}
